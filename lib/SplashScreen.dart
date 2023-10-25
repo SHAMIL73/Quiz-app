@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Login.dart';
 import 'dart:async';
-import 'dashboard.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Dashboard()), // Use Dashboard()
+        MaterialPageRoute(builder: (context) => LoginPage()), // Use Dashboard()
       );
     });
   }
