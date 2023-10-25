@@ -83,7 +83,7 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   ),
                   Text(
-                    "Enjoy Our Free Quiz",
+                    "Enjoy Free Quiz",
                     style: TextStyle(
                       fontSize: 20,
                       color: Color.fromARGB(255, 162, 34, 34),
