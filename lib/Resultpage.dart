@@ -36,7 +36,7 @@ class _ResultpageState extends State<Resultpage> {
       // Toggle the value of isBlinking every 500 milliseconds (you can adjust the duration)
       Future.delayed(Duration(milliseconds: 500), () {
         if (mounted && !buttonPressed) {
-          // Check if widget is still mounted and button not pressed
+          // Check if the widget is still mounted and the button is not pressed
           setState(() {
             isBlinking = !isBlinking;
           });
@@ -99,7 +99,7 @@ class _ResultpageState extends State<Resultpage> {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only (top: 60),
+                  margin: EdgeInsets.only(top: 60),
                   child: ElevatedButton(
                     onPressed: () {
                       Savemark();
@@ -114,10 +114,19 @@ class _ResultpageState extends State<Resultpage> {
                     },
                     style: ElevatedButton.styleFrom(
                       primary: const Color.fromARGB(255, 151, 147, 147),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
                     ),
-                    child: Text(
-                      "RETRY",
-                      style: TextStyle(fontSize: 40, color: Colors.black),
+                    child: Container(
+                      height: 50,
+                      width: 200,
+                      child: Center(
+                        child: Text(
+                          "RETRY",
+                          style: TextStyle(fontSize: 40, color: Colors.black),
+                        ),
+                      ),
                     ),
                   ),
                 ),

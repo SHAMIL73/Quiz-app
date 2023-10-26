@@ -65,7 +65,7 @@ class _CategoryState extends State<Category> {
                           Text(
                             'Math',
                             style: TextStyle(
-                              fontSize: 26,fontWeight: FontWeight.w500,
+                              fontSize: 23,fontWeight: FontWeight.w500,
                               color: Colors.white,
                             ),
                           ),
@@ -88,7 +88,7 @@ class _CategoryState extends State<Category> {
                           Text(
                             'Sports',
                             style: TextStyle(
-                              fontSize: 26,fontWeight: FontWeight.w500,
+                              fontSize: 23,fontWeight: FontWeight.w500,
                               color: Colors.white,
                             ),
                           ),
@@ -122,7 +122,7 @@ class _CategoryState extends State<Category> {
                           Text(
                             'Food and drink',
                             style: TextStyle(
-                              fontSize: 26,fontWeight: FontWeight.w500,
+                              fontSize: 23,fontWeight: FontWeight.w500,
                               color: Colors.white,
                             ),
                           ),
@@ -145,7 +145,7 @@ class _CategoryState extends State<Category> {
                           Text(
                             'Video games',
                             style: TextStyle(
-                              fontSize: 26,fontWeight: FontWeight.w500,
+                              fontSize: 23,fontWeight: FontWeight.w500,
                               color: Colors.white,
                             ),
                           ),

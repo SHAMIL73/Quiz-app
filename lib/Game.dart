@@ -93,7 +93,7 @@ class _GameState extends State<Game> {
                 ],
               ),
               SizedBox(
-                height: 100,
+                height: 90,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,

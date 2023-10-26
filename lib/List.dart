@@ -98,7 +98,7 @@ List<QuizVariables> QuestionsG = [
   QuizVariables(
     number: "Q2: ",
     question: "Popular gaming franchise?",
-    options: ["A: Mario", "B: Halo", "C: The Legend of Zelda", "D: Call of Duty"],
+    options: ["A: Mario", "B: Halo", "C: Pubg", "D: Call of Duty"],
     indexofAnswer: 0,
   ),
   QuizVariables(
@@ -116,7 +116,7 @@ List<QuizVariables> QuestionsG = [
   QuizVariables(
     number: "Q5: ",
     question: "Best-selling video game of all time?",
-    options: ["A: Minecraft", "B: Grand Theft Auto V", "C: Tetris", "D: PUPG"],
+    options: ["A: Minecraft", "B: GTA V", "C: Tetris", "D: Pubg"],
     indexofAnswer: 0,
   ),
 ];

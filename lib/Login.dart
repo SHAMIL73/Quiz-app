@@ -7,11 +7,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mr. Quiz'),
+        title: Text('MR.Quiz'),
       ),
       body: Center(
         child: Padding(
@@ -28,13 +31,17 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 20.0),
               TextField(
+                controller: emailController,
+                style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'Email',
                 ),
               ),
               SizedBox(height: 10.0),
               TextField(
-                obscureText: false,
+                controller: passwordController,
+                style: TextStyle(color: Colors.black),
+                obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Password',
                 ),

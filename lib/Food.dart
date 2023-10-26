@@ -102,8 +102,8 @@ class _FoodState extends State<Food> {
                     children: [
                       Container(
                         child: SizedBox(
-                          width: 280,
-                          height: 50,
+                         width : MediaQuery.of(context).size.width,
+                            height: 56,
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
@@ -142,7 +142,7 @@ class _FoodState extends State<Food> {
                       ),
                       Container(
                         child: SizedBox(
-                          width: 280,
+                           width : MediaQuery.of(context).size.width,
                           height: 50,
                           child: ElevatedButton(
                             style: ButtonStyle(
@@ -188,7 +188,7 @@ class _FoodState extends State<Food> {
                 children: [
                   Container(
                     child: SizedBox(
-                      width: 280,
+                       width : MediaQuery.of(context).size.width,
                       height: 50,
                       child: ElevatedButton(
                         style: ButtonStyle(
@@ -231,7 +231,7 @@ class _FoodState extends State<Food> {
                 children: [
                   Container(
                     child: SizedBox(
-                      width: 280,
+                       width : MediaQuery.of(context).size.width,
                       height: 50,
                       child: ElevatedButton(
                         style: ButtonStyle(
