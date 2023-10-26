@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 10.0),
               TextField(
-                obscureText: true,
+                obscureText: false,
                 decoration: InputDecoration(
                   labelText: 'Password',
                 ),
@@ -43,17 +43,11 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Dashboard()), // Use Dashboard()
-      );
+                    context,
+                    MaterialPageRoute(builder: (context) => Dashboard()),
+                  );
                 },
                 child: Text('Login'),
-              ),
-              TextButton(
-                onPressed: () {
-                  // Add logic to navigate to the registration page if needed
-                },
-                child: Text('Register'),
               ),
             ],
           ),

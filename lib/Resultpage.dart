@@ -18,7 +18,7 @@ class _ResultpageState extends State<Resultpage> {
   Savemark() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     finalmark = mark;
-    await prefs.setInt('markkey', finalmark!);
+    await prefs.setInt('key', finalmark!);
   }
   int? finalmark;
   bool isBlinking = true;

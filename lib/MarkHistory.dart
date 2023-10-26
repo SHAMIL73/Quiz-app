@@ -20,10 +20,10 @@ class _MarkHistoryState extends State<MarkHistory> {
 
    loadmark() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final int? loadedMark = prefs.getInt('markkey');
+    final int? loadedMark = prefs.getInt('key');
     setState(() {
       mark = loadedMark ??
-          0; // Provide a default value of 0 if 'markkey' doesn't exist.
+          0;
     });
   }
 
