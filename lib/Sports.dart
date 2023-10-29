@@ -44,7 +44,7 @@ class _sportsState extends State<sports> {
           child: Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
@@ -61,8 +61,8 @@ class _sportsState extends State<sports> {
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(top: 39),
-                      child: Text(
+                      margin: const EdgeInsets.only(top: 39),
+                      child: const Text(
                         "MR.QUIZ",
                         style: TextStyle(fontSize: 40, color: Colors.white,fontWeight: FontWeight.w500),
                       ),
@@ -79,11 +79,11 @@ class _sportsState extends State<sports> {
                           children: [
                             TextSpan(
                               text: "${QuestionsS[index].number}",
-                              style: TextStyle(fontSize: 55, color: Colors.green),
+                              style: const TextStyle(fontSize: 55, color: Colors.green),
                             ),
                             TextSpan(
                               text: "${QuestionsS[index].question}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 40,
                                 color: Colors.white,
                               ),
@@ -94,7 +94,7 @@ class _sportsState extends State<sports> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 90,
                 ),
                 Column(
@@ -120,7 +120,7 @@ class _sportsState extends State<sports> {
                                     containerColorA = Colors.red;
                                   }
                                 });
-                                Future.delayed(Duration(milliseconds: 250), () {
+                                Future.delayed(const Duration(milliseconds: 250), () {
                                   setState(() {
                                     if (index != 4) {
                                       index++;
@@ -132,14 +132,14 @@ class _sportsState extends State<sports> {
                                 });
                               },
                               child: Text(
-                                "${QuestionsS[index].options![0]}",
+                                QuestionsS[index].options![0],
                                 style:
-                                    TextStyle(fontSize: 26, color: Colors.black),
+                                    const TextStyle(fontSize: 26, color: Colors.black),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Container(
@@ -160,7 +160,7 @@ class _sportsState extends State<sports> {
                                     containerColorB = Colors.red;
                                   }
                                 });
-                                Future.delayed(Duration(milliseconds: 250), () {
+                                Future.delayed(const Duration(milliseconds: 250), () {
                                   setState(() {
                                     if (index != 4) {
                                       index++;
@@ -172,14 +172,14 @@ class _sportsState extends State<sports> {
                                 });
                               },
                               child: Text(
-                                "${QuestionsS[index].options![1]}",
+                                QuestionsS[index].options![1],
                                 style:
-                                    TextStyle(fontSize: 26, color: Colors.black),
+                                    const TextStyle(fontSize: 26, color: Colors.black),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                       ],
@@ -206,7 +206,7 @@ class _sportsState extends State<sports> {
                                 containerColorC = Colors.red;
                               }
                             });
-                            Future.delayed(Duration(milliseconds: 250), () {
+                            Future.delayed(const Duration(milliseconds: 250), () {
                               setState(() {
                                 if (index != 4) {
                                   index++;
@@ -218,13 +218,13 @@ class _sportsState extends State<sports> {
                             });
                           },
                           child: Text(
-                            "${QuestionsS[index].options![2]}",
-                            style: TextStyle(fontSize: 26, color: Colors.black),
+                            QuestionsS[index].options![2],
+                            style: const TextStyle(fontSize: 26, color: Colors.black),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                   ],
@@ -249,7 +249,7 @@ class _sportsState extends State<sports> {
                                 containerColorD = Colors.red;
                               }
                             });
-                            Future.delayed(Duration(milliseconds: 250), () {
+                            Future.delayed(const Duration(milliseconds: 250), () {
                               setState(() {
                                 if (index != 4) {
                                   index++;
@@ -261,8 +261,8 @@ class _sportsState extends State<sports> {
                             });
                           },
                           child: Text(
-                            "${QuestionsS[index].options![3]}",
-                            style: TextStyle(fontSize: 26, color: Colors.black),
+                            QuestionsS[index].options![3],
+                            style: const TextStyle(fontSize: 26, color: Colors.black),
                           ),
                         ),
                       ),

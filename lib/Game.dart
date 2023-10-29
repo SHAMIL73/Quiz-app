@@ -42,7 +42,7 @@ class _GameState extends State<Game> {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
@@ -59,8 +59,8 @@ class _GameState extends State<Game> {
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(top: 39),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 39),
+                    child: const Text(
                       "MR.QUIZ",
                       style: TextStyle(fontSize: 40, color: Colors.white,fontWeight: FontWeight.w500),
                     ),
@@ -77,11 +77,11 @@ class _GameState extends State<Game> {
                         children: [
                           TextSpan(
                             text: "${QuestionsG[index].number}",
-                            style: TextStyle(fontSize: 55, color: Colors.green),
+                            style: const TextStyle(fontSize: 55, color: Colors.green),
                           ),
                           TextSpan(
                             text: "${QuestionsG[index].question}",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 40,
                               color: Colors.white,
                             ),
@@ -92,7 +92,7 @@ class _GameState extends State<Game> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 90,
               ),
               Column(
@@ -118,7 +118,7 @@ class _GameState extends State<Game> {
                                   containerColorA = Colors.red;
                                 }
                               });
-                              Future.delayed(Duration(milliseconds: 250), () {
+                              Future.delayed(const Duration(milliseconds: 250), () {
                                 setState(() {
                                   if (index != 4) {
                                     index++;
@@ -130,14 +130,14 @@ class _GameState extends State<Game> {
                               });
                             },
                             child: Text(
-                              "${QuestionsG[index].options![0]}",
+                              QuestionsG[index].options![0],
                               style:
-                                  TextStyle(fontSize: 30, color: Colors.black),
+                                  const TextStyle(fontSize: 30, color: Colors.black),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Container(
@@ -158,7 +158,7 @@ class _GameState extends State<Game> {
                                   containerColorB = Colors.red;
                                 }
                               });
-                              Future.delayed(Duration(milliseconds: 250), () {
+                              Future.delayed(const Duration(milliseconds: 250), () {
                                 setState(() {
                                   if (index != 4) {
                                     index++;
@@ -170,14 +170,14 @@ class _GameState extends State<Game> {
                               });
                             },
                             child: Text(
-                              "${QuestionsG[index].options![1]}",
+                              QuestionsG[index].options![1],
                               style:
-                                  TextStyle(fontSize: 30, color: Colors.black),
+                                  const TextStyle(fontSize: 30, color: Colors.black),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                     ],
@@ -204,7 +204,7 @@ class _GameState extends State<Game> {
                               containerColorC = Colors.red;
                             }
                           });
-                          Future.delayed(Duration(milliseconds: 250), () {
+                          Future.delayed(const Duration(milliseconds: 250), () {
                             setState(() {
                               if (index != 4) {
                                 index++;
@@ -216,13 +216,13 @@ class _GameState extends State<Game> {
                           });
                         },
                         child: Text(
-                          "${QuestionsG[index].options![2]}",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
+                          QuestionsG[index].options![2],
+                          style: const TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                 ],
@@ -247,7 +247,7 @@ class _GameState extends State<Game> {
                               containerColorD = Colors.red;
                             }
                           });
-                          Future.delayed(Duration(milliseconds: 250), () {
+                          Future.delayed(const Duration(milliseconds: 250), () {
                             setState(() {
                               if (index != 4) {
                                 index++;
@@ -259,8 +259,8 @@ class _GameState extends State<Game> {
                           });
                         },
                         child: Text(
-                          "${QuestionsG[index].options![3]}",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
+                          QuestionsG[index].options![3],
+                          style: const TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       ),
                     ),

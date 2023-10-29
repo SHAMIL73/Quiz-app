@@ -28,8 +28,8 @@ class _MathState extends State<Math> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => Resultpage(
-                  mark: mark,
+            builder: (context) => const Resultpage(
+                  mark: 0,
                 )),
       );
     }
@@ -42,7 +42,7 @@ class _MathState extends State<Math> {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
@@ -59,15 +59,15 @@ class _MathState extends State<Math> {
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(top: 39),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 39),
+                    child: const Text(
                       "MR.QUIZ",
                       style: TextStyle(fontSize: 40, color: Colors.white,fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Column(
@@ -79,11 +79,11 @@ class _MathState extends State<Math> {
                         children: [
                           TextSpan(
                             text: "${QuestionsM[index].number}",
-                            style: TextStyle(fontSize: 55, color: Colors.green),
+                            style: const TextStyle(fontSize: 55, color: Colors.green),
                           ),
                           TextSpan(
                             text: "${QuestionsM[index].question}",
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 60,
                               color: Colors.white,
                             ),
@@ -94,7 +94,7 @@ class _MathState extends State<Math> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Column(
@@ -120,7 +120,7 @@ class _MathState extends State<Math> {
                                   containerColorA = Colors.red;
                                 }
                               });
-                              Future.delayed(Duration(milliseconds: 250), () {
+                              Future.delayed(const Duration(milliseconds: 250), () {
                                 setState(() {
                                   if (index != 4) {
                                     index++;
@@ -132,14 +132,14 @@ class _MathState extends State<Math> {
                               });
                             },
                             child: Text(
-                              "${QuestionsM[index].options![0]}",
+                              QuestionsM[index].options![0],
                               style:
-                                  TextStyle(fontSize: 40, color: Colors.black),
+                                  const TextStyle(fontSize: 40, color: Colors.black),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Container(
@@ -160,7 +160,7 @@ class _MathState extends State<Math> {
                                   containerColorB = Colors.red;
                                 }
                               });
-                              Future.delayed(Duration(milliseconds: 250), () {
+                              Future.delayed(const Duration(milliseconds: 250), () {
                                 setState(() {
                                   if (index != 4) {
                                     index++;
@@ -172,14 +172,14 @@ class _MathState extends State<Math> {
                               });
                             },
                             child: Text(
-                              "${QuestionsM[index].options![1]}",
+                              QuestionsM[index].options![1],
                               style:
-                                  TextStyle(fontSize: 40, color: Colors.black),
+                                  const TextStyle(fontSize: 40, color: Colors.black),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                     ],
@@ -206,7 +206,7 @@ class _MathState extends State<Math> {
                               containerColorC = Colors.red;
                             }
                           });
-                          Future.delayed(Duration(milliseconds: 250), () {
+                          Future.delayed(const Duration(milliseconds: 250), () {
                             setState(() {
                               if (index != 4) {
                                 index++;
@@ -218,13 +218,13 @@ class _MathState extends State<Math> {
                           });
                         },
                         child: Text(
-                          "${QuestionsM[index].options![2]}",
-                          style: TextStyle(fontSize: 40, color: Colors.black),
+                          QuestionsM[index].options![2],
+                          style: const TextStyle(fontSize: 40, color: Colors.black),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                 ],
@@ -249,7 +249,7 @@ class _MathState extends State<Math> {
                               containerColorD = Colors.red;
                             }
                           });
-                          Future.delayed(Duration(milliseconds: 250), () {
+                          Future.delayed(const Duration(milliseconds: 250), () {
                             setState(() {
                               if (index != 4) {
                                 index++;
@@ -261,8 +261,8 @@ class _MathState extends State<Math> {
                           });
                         },
                         child: Text(
-                          "${QuestionsM[index].options![3]}",
-                          style: TextStyle(fontSize: 40, color: Colors.black),
+                          QuestionsM[index].options![3],
+                          style: const TextStyle(fontSize: 40, color: Colors.black),
                         ),
                       ),
                     ),

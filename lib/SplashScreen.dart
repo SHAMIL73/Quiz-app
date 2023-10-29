@@ -3,6 +3,8 @@ import 'package:flutter_application_1/Login.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -12,17 +14,17 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Add a delay and then navigate to the Dashboard
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginPage()), // Use Dashboard()
+        MaterialPageRoute(builder: (context) => const LoginPage()), // Use Dashboard()
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black, // Set the background color
       body: Center(
         child: Column(

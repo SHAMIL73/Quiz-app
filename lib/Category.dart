@@ -19,7 +19,7 @@ class _CategoryState extends State<Category> {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
@@ -33,13 +33,13 @@ class _CategoryState extends State<Category> {
             children: [
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(top: 39),
-                child: Text(
+                margin: const EdgeInsets.only(top: 39),
+                child: const Text(
                   "MR.QUIZ",
                   style: TextStyle(fontSize: 40, color: Colors.white,fontWeight: FontWeight.w500),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Column(
@@ -55,14 +55,14 @@ class _CategoryState extends State<Category> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Math()),
+                                    builder: (context) => const Math()),
                               );
                             },
-                            child: Icon(Icons.calculate,
+                            child: const Icon(Icons.calculate,
                                 color: Color.fromARGB(255, 169, 171, 170),
                                 size: 180),
                           ),
-                          Text(
+                          const Text(
                             'Math',
                             style: TextStyle(
                               fontSize: 23,fontWeight: FontWeight.w500,
@@ -79,13 +79,13 @@ class _CategoryState extends State<Category> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => sports()),
+                                    builder: (context) => const sports()),
                               );
                             },
-                            child: Icon(Icons.sports_basketball,
+                            child: const Icon(Icons.sports_basketball,
                                 color: Colors.blue, size: 180),
                           ),
-                          Text(
+                          const Text(
                             'Sports',
                             style: TextStyle(
                               fontSize: 23,fontWeight: FontWeight.w500,
@@ -114,12 +114,12 @@ class _CategoryState extends State<Category> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Food()),
+                                    builder: (context) => const Food()),
                               );
                             },
-                            child: Icon(Icons.food_bank, color: Colors.green, size: 180),
+                            child: const Icon(Icons.food_bank, color: Colors.green, size: 180),
                           ),
-                          Text(
+                          const Text(
                             'Food and drink',
                             style: TextStyle(
                               fontSize: 23,fontWeight: FontWeight.w500,
@@ -136,13 +136,13 @@ class _CategoryState extends State<Category> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Game()),
+                                    builder: (context) => const Game()),
                               );
                             },
-                            child: Icon(Icons.videogame_asset,
+                            child: const Icon(Icons.videogame_asset,
                                 color: Colors.red, size: 180),
                           ),
-                          Text(
+                          const Text(
                             'Video games',
                             style: TextStyle(
                               fontSize: 23,fontWeight: FontWeight.w500,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ProviderDemo.dart';
 import 'package:flutter_application_1/SplashScreen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +17,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "QuizApp",
-      home: SplashScreen(),
-      debugShowCheckedModeBanner: false,
+    return ChangeNotifierProvider(
+      create: (context) => ProviderDemo(),
+      child: const MaterialApp(
+        title: "QuizApp",
+        home: SplashScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

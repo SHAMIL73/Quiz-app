@@ -3,7 +3,7 @@ import 'package:flutter_application_1/Category.dart';
 import 'package:flutter_application_1/MarkHistory.dart';
 
 void main() {
-  runApp(Dashboard());
+  runApp(const Dashboard());
 }
 
 class Dashboard extends StatefulWidget {
@@ -24,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
   void navigateToCategory(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Category()),
+      MaterialPageRoute(builder: (context) => const Category()),
     );
   }
 
@@ -34,7 +34,7 @@ class _DashboardState extends State<Dashboard> {
       body: Container(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
@@ -50,7 +50,7 @@ class _DashboardState extends State<Dashboard> {
               backgroundColor: Colors.transparent,
               leading: InkWell(
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.history,
                     size: 34,
                     color: Colors.white,
@@ -58,22 +58,25 @@ class _DashboardState extends State<Dashboard> {
                   onPressed: () {
                     Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MarkHistory()),
+                    MaterialPageRoute(builder: (context) => const MarkHistory()),
                   );
                   },
                 ),
               ),
-              title: Text(
+              title: const Text(
                 "MR.QUIZ",
                 style: TextStyle(fontSize: 40, color: Colors.white),
               ),
               centerTitle: true,
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Container(
               height: 74,
               width: 300,
-              child: Column(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white),
+              ),
+              child: const Column(
                 children: [
                   Text(
                     "Welcome to MR.QUIZ",
@@ -91,27 +94,24 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ],
               ),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-              ),
             ),
-            SizedBox(height: 250),
+            const SizedBox(height: 250),
             Container(
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Category()),
+                    MaterialPageRoute(builder: (context) => const Category()),
                   );
                 },
                 style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.black),
                   side: MaterialStateProperty.all<BorderSide>(
-                    BorderSide(color: Colors.white, width: 2.0),
+                    const BorderSide(color: Colors.white, width: 2.0),
                   ),
                   minimumSize: MaterialStateProperty.all<Size>(
-                    Size(200.0, 60.0),
+                    const Size(200.0, 60.0),
                   ),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
@@ -119,7 +119,7 @@ class _DashboardState extends State<Dashboard> {
                     ),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   "START",
                   style: TextStyle(fontSize: 46, color: Colors.white),
                 ),
