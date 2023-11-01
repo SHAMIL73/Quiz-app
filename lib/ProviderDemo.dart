@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProviderDemo with ChangeNotifier {
   Text text1() {
-    return Text(
+    return const Text(
       "MR.QUIZ",
       style: TextStyle(
         fontSize: 40,
