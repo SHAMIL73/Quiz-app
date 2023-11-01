@@ -11,7 +11,7 @@ class Resultpage extends StatefulWidget {
   _ResultpageState createState() => _ResultpageState(mark);
 }
 
-class _ResultpageState extends State<Resultpage> {
+class _ResultpageState extends State<Resultpage> { 
   final int mark;
   _ResultpageState(this.mark);
 
@@ -22,7 +22,9 @@ class _ResultpageState extends State<Resultpage> {
   @override
   void initState() {
     super.initState();
+    Savemark();
     startBlinking();
+
   }
 
   void startBlinking() {

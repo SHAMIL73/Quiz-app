@@ -11,7 +11,7 @@ class Math extends StatefulWidget {
 
 class _MathState extends State<Math> {
   int index = 0; // Initialize index to 0
-  var mark = 0;
+  int mark = 0;
   Color containerColorA = Colors.white;
   Color containerColorB = Colors.white;
   Color containerColorC = Colors.white;
@@ -28,8 +28,8 @@ class _MathState extends State<Math> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => const Resultpage(
-                  mark: 0,
+            builder: (context) => Resultpage(
+                  mark: mark,
                 )),
       );
     }

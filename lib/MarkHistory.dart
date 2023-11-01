@@ -11,7 +11,6 @@ class MarkHistory extends StatefulWidget {
 
 class _MarkHistoryState extends State<MarkHistory> {
 
-
   // Capture the current time once
   final now = DateTime.now();
   final formattedDate = "${DateTime.now().toLocal()}".split(' ')[0];
@@ -20,18 +19,10 @@ class _MarkHistoryState extends State<MarkHistory> {
   @override
   void initState() {
     super.initState();
-    getUserScoresMaths();
+    load();
   }
-
-  // loadmark() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   final int? loadedMark = prefs.getInt('markkey');
-  //   //await prefs.clear();
-  //   setState(() {
-  //     mark = loadedMark ?? 0;
-  //   });
-  // }
-  Future<void> getUserScoresMaths() async {
+  
+  Future<void> load() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? savedMarksString = prefs.getString('user_scores_sports');
 

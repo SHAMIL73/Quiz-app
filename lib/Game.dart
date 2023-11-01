@@ -11,7 +11,7 @@ class Game extends StatefulWidget {
 
 class _GameState extends State<Game> {
   int index = 0; // Initialize index to 0
-  var mark = 0;
+  int mark = 0;
   Color containerColorA = Colors.white;
   Color containerColorB = Colors.white;
   Color containerColorC = Colors.white;
