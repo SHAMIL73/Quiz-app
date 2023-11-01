@@ -10,31 +10,21 @@ class MarkHistory extends StatefulWidget {
 }
 
 class _MarkHistoryState extends State<MarkHistory> {
-
-  // Capture the current time once
-  final now = DateTime.now();
-  final formattedDate = "${DateTime.now().toLocal()}".split(' ')[0];
-  final formattedTime = "${DateTime.now().toLocal()}".split(' ')[1].split(':').take(2).join(':');
+  int? mark;
 
   @override
   void initState() {
     super.initState();
-    load();
+    loadmark();
   }
-  
-  Future<void> load() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? savedMarksString = prefs.getString('user_scores_sports');
 
-    // await prefs.clear();
-    if (savedMarksString != null) {
-      setState(() {
-        savedMarks = savedMarksString
-          .split(',')
-          .map((s) => int.tryParse(s) ?? 0)
-          .toList();
-      });
-    }
+   loadmark() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final int? loadedMark = prefs.getInt('key');
+    setState(() {
+      mark = loadedMark ??
+          0;
+    });
   }
 
   @override
@@ -48,27 +38,16 @@ class _MarkHistoryState extends State<MarkHistory> {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(color: Color.fromARGB(255, 171, 173, 198)),
+          decoration: BoxDecoration(color: Color.fromARGB(255, 42, 121, 10)),
           child: ListView.builder(
+            shrinkWrap: true,
             itemCount: savedMarks.length,
             itemBuilder: (context, index) {
               return ListTile(
                 title: Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Mark: ${savedMarks[index]}',
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        'Date: $formattedDate',
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                      Text(
-                        'Time: $formattedTime',
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                    ],
+                  child: Text(
+                    '${savedMarks[index]}',
+                    style: TextStyle(fontSize: 17),
                   ),
                 ),
               );

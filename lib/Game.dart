@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ProviderDemo.dart';
+import 'package:provider/provider.dart';
 import 'Resultpage.dart';
 import 'package:flutter_application_1/List.dart';
 
@@ -60,10 +62,7 @@ class _GameState extends State<Game> {
                   Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(top: 39),
-                    child: const Text(
-                      "MR.QUIZ",
-                      style: TextStyle(fontSize: 40, color: Colors.white,fontWeight: FontWeight.w500),
-                    ),
+                    child: Provider.of<ProviderDemo>(context).text1(),
                   ),
                 ],
               ),

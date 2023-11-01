@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Category.dart';
 import 'package:flutter_application_1/MarkHistory.dart';
+import 'package:flutter_application_1/ProviderDemo.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const Dashboard());
@@ -63,10 +65,7 @@ class _DashboardState extends State<Dashboard> {
                   },
                 ),
               ),
-              title: const Text(
-                "MR.QUIZ",
-                style: TextStyle(fontSize: 40, color: Colors.white),
-              ),
+              title: Provider.of<ProviderDemo>(context).text1(),
               centerTitle: true,
             ),
             const SizedBox(height: 50),

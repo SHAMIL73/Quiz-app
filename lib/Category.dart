@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Math.dart';
+import 'package:flutter_application_1/ProviderDemo.dart';
 import 'package:flutter_application_1/Sports.dart';
 import 'package:flutter_application_1/Food.dart';
 import 'package:flutter_application_1/game.dart';
+import 'package:provider/provider.dart';
 
 class Category extends StatefulWidget {
   const Category({Key? key}) : super(key: key);
@@ -34,10 +36,7 @@ class _CategoryState extends State<Category> {
               Container(
                 alignment: Alignment.center,
                 margin: const EdgeInsets.only(top: 39),
-                child: const Text(
-                  "MR.QUIZ",
-                  style: TextStyle(fontSize: 40, color: Colors.white,fontWeight: FontWeight.w500),
-                ),
+                child: Provider.of<ProviderDemo>(context).text1(),
               ),
               const SizedBox(
                 height: 60,
