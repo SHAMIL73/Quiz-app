@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/List.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:intl/intl.dart';
 
 class MarkHistory extends StatefulWidget {
   const MarkHistory({Key? key}) : super(key: key);
@@ -11,20 +12,24 @@ class MarkHistory extends StatefulWidget {
 
 class _MarkHistoryState extends State<MarkHistory> {
   int? mark;
+  List<String> storedTimes = [];
 
   @override
   void initState() {
     super.initState();
-    loadmark();
+    saveTimeAndDate();
   }
 
-   loadmark() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final int? loadedMark = prefs.getInt('key');
-    setState(() {
-      mark = loadedMark ??
-          0;
-    });
+  DateTime selectedDate = DateTime.now();
+  
+
+  Future<void> saveTimeAndDate() async {
+    final now = DateTime.now();
+ 
+    final prefs = await SharedPreferences.getInstance();
+    final storedTimes = prefs.getStringList('storedTimes') ?? [];
+    storedTimes.add(now.toString());
+    await prefs.setStringList('storedTimes', storedTimes);
   }
 
   @override
@@ -38,16 +43,30 @@ class _MarkHistoryState extends State<MarkHistory> {
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(color: Color.fromARGB(255, 42, 121, 10)),
+          decoration: const BoxDecoration(color: Color.fromARGB(255, 171, 173, 198)),
           child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: savedMarks.length,
+            itemCount: savedMarks.length, // Please define savedMarks or replace it with the appropriate list
             itemBuilder: (context, index) {
+              final now = DateTime.now();
+              String formattedDate = DateFormat('yyyy-MM-dd').format(now.toLocal());
+              String formattedTime = DateFormat('hh:mm').format(now.toLocal());
               return ListTile(
                 title: Center(
-                  child: Text(
-                    '${savedMarks[index]}',
-                    style: TextStyle(fontSize: 17),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Mark: ${savedMarks[index]}',
+                        style: const TextStyle(fontSize: 17),
+                      ),
+                      Text(
+                        'Date: $formattedDate',
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                      Text(
+                        'Time: $formattedTime',
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                    ],
                   ),
                 ),
               );

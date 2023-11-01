@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Resultpage extends StatefulWidget {
   final int mark;
 
-  Resultpage({Key? key, required this.mark}) : super(key: key);
+  const Resultpage({Key? key, required this.mark}) : super(key: key);
 
   @override
   _ResultpageState createState() => _ResultpageState(mark: mark);
@@ -34,7 +34,7 @@ class _ResultpageState extends State<Resultpage> {
     if (!buttonPressed) {
       // Check if the button has not been pressed
       // Toggle the value of isBlinking every 500 milliseconds (you can adjust the duration)
-      Future.delayed(Duration(milliseconds: 500), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         if (mounted && !buttonPressed) {
           // Check if the widget is still mounted and the button is not pressed
           setState(() {
@@ -63,7 +63,7 @@ class _ResultpageState extends State<Resultpage> {
       body: Container(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
@@ -77,7 +77,7 @@ class _ResultpageState extends State<Resultpage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AnimatedOpacity(
-              duration: Duration(milliseconds: 490),
+              duration: const Duration(milliseconds: 490),
               opacity: isBlinking ? 1.0 : 0.0, // Toggle opacity
               child: Text(
                 resultPhrase,
@@ -89,7 +89,7 @@ class _ResultpageState extends State<Resultpage> {
             ),
             Text(
               'You Have Scored ${widget.mark}/5',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
               ),
@@ -99,7 +99,7 @@ class _ResultpageState extends State<Resultpage> {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 60),
+                  margin: const EdgeInsets.only(top: 60),
                   child: ElevatedButton(
                     onPressed: () {
                       Savemark();
@@ -109,16 +109,16 @@ class _ResultpageState extends State<Resultpage> {
                       });
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Dashboard()),
+                        MaterialPageRoute(builder: (context) => const Dashboard()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromARGB(255, 151, 147, 147),
+                      backgroundColor: const Color.fromARGB(255, 151, 147, 147),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    child: Container(
+                    child: const SizedBox(
                       height: 50,
                       width: 200,
                       child: Center(
