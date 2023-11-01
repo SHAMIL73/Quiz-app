@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/List.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,41 +13,24 @@ class MarkHistory extends StatefulWidget {
 
 class _MarkHistoryState extends State<MarkHistory> {
   int? mark;
-  List<String> storedTimes = [];  // This is the top-level variable.
+  List<String> storedTimes = [];
 
   @override
   void initState() {
     super.initState();
-    loadmark();
-    storedTime();
-    loadStoredTimes();
-  }
-
-  Future<void> storedTime() async {
-    final now = DateTime.now();
-    final prefs = await SharedPreferences.getInstance();
-    final storedTimes = prefs.getStringList('storedTimes') ?? [];
-    storedTimes.add(now.toString());
-    await prefs.setStringList('storedTimes', storedTimes);
+    saveTimeAndDate();
   }
 
   DateTime selectedDate = DateTime.now();
   
-  Future<void> loadStoredTimes() async {
+
+  Future<void> saveTimeAndDate() async {
+    final now = DateTime.now();
+ 
     final prefs = await SharedPreferences.getInstance();
-    final storedTimesList = prefs.getStringList('storedTimes');
-
-    setState(() {
-      storedTimes = storedTimesList ?? []; // Update the top-level variable here.
-    });
-  }
-
-  loadmark() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final int? loadedMark = prefs.getInt('markkey');
-    setState(() {
-      mark = loadedMark ?? 0;
-    });
+    final storedTimes = prefs.getStringList('storedTimes') ?? [];
+    storedTimes.add(now.toString());
+    await prefs.setStringList('storedTimes', storedTimes);
   }
 
   @override
