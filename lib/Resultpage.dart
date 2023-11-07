@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Dashboard.dart';
 import 'package:flutter_application_1/List.dart'; // Make sure to import the List.dart file where savedMarks is defined
+import 'package:flutter_application_1/ProviderDemo.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Resultpage extends StatefulWidget {
@@ -15,14 +17,17 @@ class Resultpage extends StatefulWidget {
 class _ResultpageState extends State<Resultpage> {
   final int mark;
   _ResultpageState({required this.mark});
+  
   Savemark() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     finalmark = mark;
     await prefs.setInt('key', finalmark!);
+    savedMarks.add(mark);
   }
+
   int? finalmark;
   bool isBlinking = true;
-  bool buttonPressed = false; // Add a flag to track button press
+  bool buttonPressed = false;
 
   @override
   void initState() {
@@ -57,7 +62,6 @@ class _ResultpageState extends State<Resultpage> {
 
   @override
   Widget build(BuildContext context) {
-    savedMarks.add(mark);
     finalmark = widget.mark;
     return Scaffold(
       body: Container(
@@ -87,8 +91,16 @@ class _ResultpageState extends State<Resultpage> {
                 ),
               ),
             ),
+            mark > 5?
+             Text(
+              "You Have Scored 5/5",
+              style: const TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+              ),
+            ):
             Text(
-              'You Have Scored ${widget.mark}/5',
+              "You Have Scored ${widget.mark}/5",
               style: const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
@@ -102,14 +114,15 @@ class _ResultpageState extends State<Resultpage> {
                   margin: const EdgeInsets.only(top: 60),
                   child: ElevatedButton(
                     onPressed: () {
+                       Provider.of<ProviderDemo>(context, listen: false).index= 0;
                       Savemark();
-                      // Set the buttonPressed flag to true to stop blinking
+                      Provider.of<ProviderDemo>(context, listen: false).mark= 0;
                       setState(() {
                         buttonPressed = true;
                       });
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Dashboard()),
+                        MaterialPageRoute(builder: (context) =>  const Dashboard()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

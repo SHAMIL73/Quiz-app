@@ -12,30 +12,20 @@ class Food extends StatefulWidget {
 }
 
 class _FoodState extends State<Food> {
-  int index = 0; // Initialize index to 0
-  int mark = 0;
-  Color containerColorA = Colors.white;
-  Color containerColorB = Colors.white;
-  Color containerColorC = Colors.white;
-  Color containerColorD = Colors.white;
-  // Function to handle button press and navigate to the next question
-  void goToNextQuestion() {
-    if (index < QuestionsF.length - 1) {
-      // Check if there are more QuestionsF
-      setState(() {
-        index++; // Increment the index
-      });
+ void goToNextQuestion() {
+    if (Provider.of<ProviderDemo>(context).index < QuestionsF.length - 1) {
+      Provider.of<ProviderDemo>(context, listen: false).iN(context);
     } else {
-      // If there are no more QuestionsF, navigate to the result page
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (context) => Resultpage(
-                  mark: mark,
+                  mark: Provider.of<ProviderDemo>(context).mark,
                 )),
       );
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,11 +65,11 @@ class _FoodState extends State<Food> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "${QuestionsF[index].number}",
+                            text: "${QuestionsF[Provider.of<ProviderDemo>(context).index].number}",
                             style: const TextStyle(fontSize: 55, color: Colors.green),
                           ),
                           TextSpan(
-                            text: "${QuestionsF[index].question}",
+                            text: "${QuestionsF[Provider.of<ProviderDemo>(context).index].question}",
                             style: const TextStyle(
                               fontSize: 40,
                               color: Colors.white,
@@ -106,32 +96,18 @@ class _FoodState extends State<Food> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(containerColorA),
+                                   MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorA),
                             ),
                             onPressed: () {
-                              setState(() {
-                                if (QuestionsF[index].indexofAnswer == 0) {
-                                  mark++;
-                                  containerColorA = Colors.green;
-                                } else {
-                                  containerColorA = Colors.red;
-                                }
-                              });
-                              Future.delayed(const Duration(milliseconds: 250), () {
-                                setState(() {
-                                  if (index != 4) {
-                                    index++;
-                                  } else {
-                                    goToNextQuestion();
-                                  }
-                                  containerColorA = Colors.white;
-                                });
-                              });
-                            },
+                          Provider.of<ProviderDemo>(context, listen: false).colorFunctionA();
+                          Future.delayed(const Duration(milliseconds: 250), () {
+                            Provider.of<ProviderDemo>(context, listen: false).aA(context);
+                          });
+                        },
                             child: Text(
-                              QuestionsF[index].options![0],
+                              QuestionsF[Provider.of<ProviderDemo>(context).index].options![0],
                               style:
-                                  const TextStyle(fontSize: 40, color: Colors.black),
+                                  const TextStyle(fontSize: 30, color: Colors.black),
                             ),
                           ),
                         ),
@@ -146,33 +122,18 @@ class _FoodState extends State<Food> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(containerColorB),
+                                   MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorB)
                             ),
-                            onPressed: () {
-                              setState(() {
-                                if (QuestionsF[index].indexofAnswer == 1) {
-                                  mark++;
-                                  containerColorB = Colors.green;
-                                } else {
-                                  containerColorB = Colors.red;
-                                }
-                              });
-                              Future.delayed(const Duration(milliseconds: 250), () {
-                                setState(() {
-                                  if (index != 4) {
-                                    index++;
-                                  } else {
-                                    goToNextQuestion();
-                                  }
-                                  containerColorB = Colors.white;
-                                });
-                              });
-                            },
-                            child: Text(
-                              QuestionsF[index].options![1],
-                              style:
-                                  const TextStyle(fontSize: 40, color: Colors.black),
-                            ),
+                             onPressed: () {
+                          Provider.of<ProviderDemo>(context, listen: false).colorFunctionB();
+                          Future.delayed(const Duration(milliseconds: 250), () {
+                            Provider.of<ProviderDemo>(context, listen: false).bB(context);
+                          });
+                        },
+                          child: Text(
+                          QuestionsF[Provider.of<ProviderDemo>(context).index].options![1],
+                          style: const TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                           ),
                         ),
                       ),
@@ -192,31 +153,17 @@ class _FoodState extends State<Food> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(containerColorC),
+                               MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorC)
                         ),
-                        onPressed: () {
-                          setState(() {
-                            if (QuestionsF[index].indexofAnswer == 2) {
-                              mark++;
-                              containerColorC = Colors.green;
-                            } else {
-                              containerColorC = Colors.red;
-                            }
-                          });
+                         onPressed: () {
+                          Provider.of<ProviderDemo>(context, listen: false).colorFunctionC();
                           Future.delayed(const Duration(milliseconds: 250), () {
-                            setState(() {
-                              if (index != 4) {
-                                index++;
-                              } else {
-                                goToNextQuestion();
-                              }
-                              containerColorC = Colors.white;
-                            });
+                            Provider.of<ProviderDemo>(context, listen: false).cC(context);
                           });
                         },
                         child: Text(
-                          QuestionsF[index].options![2],
-                          style: const TextStyle(fontSize: 40, color: Colors.black),
+                          QuestionsF[Provider.of<ProviderDemo>(context).index].options![2],
+                          style: const TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       ),
                     ),
@@ -235,31 +182,17 @@ class _FoodState extends State<Food> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(containerColorD),
+                               MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorD)
                         ),
-                        onPressed: () {
-                          setState(() {
-                            if (QuestionsF[index].indexofAnswer == 3) {
-                              mark++;
-                              containerColorD = Colors.green;
-                            } else {
-                              containerColorD = Colors.red;
-                            }
-                          });
+                         onPressed: () {
+                          Provider.of<ProviderDemo>(context, listen: false).colorFunctionD();
                           Future.delayed(const Duration(milliseconds: 250), () {
-                            setState(() {
-                              if (index != 4) {
-                                index++;
-                              } else {
-                                goToNextQuestion();
-                              }
-                              containerColorD = Colors.white;
-                            });
+                            Provider.of<ProviderDemo>(context, listen: false).dD(context);
                           });
                         },
                         child: Text(
-                          QuestionsF[index].options![3],
-                          style: const TextStyle(fontSize: 40, color: Colors.black),
+                          QuestionsF[Provider.of<ProviderDemo>(context).index].options![3],
+                          style: const TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       ),
                     ),

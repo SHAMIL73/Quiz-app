@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 
 class MarkHistory extends StatefulWidget {
   const MarkHistory({Key? key}) : super(key: key);
-
   @override
   State<MarkHistory> createState() => _MarkHistoryState();
 }
@@ -20,12 +19,10 @@ class _MarkHistoryState extends State<MarkHistory> {
     saveTimeAndDate();
   }
 
-  DateTime selectedDate = DateTime.now();
+DateTime selectedDate = DateTime.now();
   
-
   Future<void> saveTimeAndDate() async {
     final now = DateTime.now();
- 
     final prefs = await SharedPreferences.getInstance();
     final storedTimes = prefs.getStringList('storedTimes') ?? [];
     storedTimes.add(now.toString());
