@@ -82,7 +82,7 @@ class _FoodState extends State<Food> {
                 ],
               ),
               const SizedBox(
-                height: 100,
+                height: 55,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -92,11 +92,15 @@ class _FoodState extends State<Food> {
                       Container(
                         child: SizedBox(
                          width : MediaQuery.of(context).size.width,
-                            height: 56,
+                            height: 50,
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
                                    MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorA),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                             ),
                             onPressed: () {
                           Provider.of<ProviderDemo>(context, listen: false).colorFunctionA();
@@ -122,7 +126,11 @@ class _FoodState extends State<Food> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
-                                   MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorB)
+                                   MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorB),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                             ),
                              onPressed: () {
                           Provider.of<ProviderDemo>(context, listen: false).colorFunctionB();
@@ -150,10 +158,15 @@ class _FoodState extends State<Food> {
                     child: SizedBox(
                        width : MediaQuery.of(context).size.width,
                       height: 50,
+                      
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                               MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorC)
+                               MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorC),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                         ),
                          onPressed: () {
                           Provider.of<ProviderDemo>(context, listen: false).colorFunctionC();
@@ -182,7 +195,11 @@ class _FoodState extends State<Food> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
-                               MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorD)
+                               MaterialStateProperty.all(Provider.of<ProviderDemo>(context).containerColorD),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                         ),
                          onPressed: () {
                           Provider.of<ProviderDemo>(context, listen: false).colorFunctionD();

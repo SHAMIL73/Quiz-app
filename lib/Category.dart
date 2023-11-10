@@ -59,7 +59,7 @@ class _CategoryState extends State<Category> {
                             },
                             child: const Icon(Icons.calculate,
                                 color: Color.fromARGB(255, 169, 171, 170),
-                                size: 180),
+                                size: 150),
                           ),
                           const Text(
                             'Math',
@@ -82,7 +82,7 @@ class _CategoryState extends State<Category> {
                               );
                             },
                             child: const Icon(Icons.sports_basketball,
-                                color: Colors.blue, size: 180),
+                                color: Colors.blue, size: 150),
                           ),
                           const Text(
                             'Sports',
@@ -116,7 +116,7 @@ class _CategoryState extends State<Category> {
                                     builder: (context) => const Food()),
                               );
                             },
-                            child: const Icon(Icons.food_bank, color: Colors.green, size: 180),
+                            child: const Icon(Icons.food_bank, color: Colors.green, size: 150),
                           ),
                           const Text(
                             'Food and drink',
@@ -139,7 +139,7 @@ class _CategoryState extends State<Category> {
                               );
                             },
                             child: const Icon(Icons.videogame_asset,
-                                color: Colors.red, size: 180),
+                                color: Colors.red, size: 150),
                           ),
                           const Text(
                             'Video games',

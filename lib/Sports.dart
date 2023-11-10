@@ -94,7 +94,7 @@ class _sportsState extends State<sports> {
                   ],
                 ),
                 const SizedBox(
-                  height: 90,
+                  height: 55,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -103,12 +103,16 @@ class _sportsState extends State<sports> {
                       children: [
                         Container(
                           child: SizedBox(
-                           width: 356,
-                            height: 56,
+                           width : MediaQuery.of(context).size.width,
+                            height: 50,
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all(containerColorA),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -143,12 +147,16 @@ class _sportsState extends State<sports> {
                         ),
                         Container(
                           child: SizedBox(
-                           width: 356,
-                            height: 56,
+                           width : MediaQuery.of(context).size.width,
+                            height: 50,
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all(containerColorB),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -189,12 +197,16 @@ class _sportsState extends State<sports> {
                   children: [
                     Container(
                       child: SizedBox(
-                      width: 356,
-                            height: 56,
+                      width : MediaQuery.of(context).size.width,
+                        height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(containerColorC),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                           ),
                           onPressed: () {
                             setState(() {
@@ -232,12 +244,16 @@ class _sportsState extends State<sports> {
                   children: [
                     Container(
                       child: SizedBox(
-                        width: 356,
-                            height: 56,
+                        width : MediaQuery.of(context).size.width,
+                           height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(containerColorD),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                           ),
                           onPressed: () {
                             setState(() {

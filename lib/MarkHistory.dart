@@ -48,23 +48,21 @@ DateTime selectedDate = DateTime.now();
               String formattedDate = DateFormat('yyyy-MM-dd').format(now.toLocal());
               String formattedTime = DateFormat('hh:mm').format(now.toLocal());
               return ListTile(
-                title: Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Mark: ${savedMarks[index]}',
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        'Date: $formattedDate',
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                      Text(
-                        'Time: $formattedTime',
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                    ],
-                  ),
+                title: Column(
+                  children: [
+                    Text(
+                      'Mark: ${savedMarks[index]}',
+                      style: const TextStyle(fontSize: 17),
+                    ),
+                    Text(
+                      'Date: $formattedDate',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                    Text(
+                      'Time: $formattedTime',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ],
                 ),
               );
             },

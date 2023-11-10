@@ -95,7 +95,7 @@ class _MathState extends State<Math> {
                 ],
               ),
               const SizedBox(
-                height: 100,
+                height: 95,
               ),
               Column(
                 children: [
@@ -104,12 +104,16 @@ class _MathState extends State<Math> {
                     children: [
                       Container(
                         child: SizedBox(
-                          width: 270,
-                          height: 50,
+                         width : MediaQuery.of(context).size.width,
+                            height: 50,
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(containerColorA),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                             ),
                             onPressed: () {
                               setState(() {
@@ -144,12 +148,16 @@ class _MathState extends State<Math> {
                       ),
                       Container(
                         child: SizedBox(
-                          width: 270,
-                          height: 50,
+                         width : MediaQuery.of(context).size.width,
+                            height: 50,
                           child: ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(containerColorB),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                             ),
                             onPressed: () {
                               setState(() {
@@ -190,12 +198,16 @@ class _MathState extends State<Math> {
                 children: [
                   Container(
                     child: SizedBox(
-                      width: 270,
-                      height: 50,
+                     width : MediaQuery.of(context).size.width,
+                            height: 50,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(containerColorC),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                         ),
                         onPressed: () {
                           setState(() {
@@ -233,12 +245,16 @@ class _MathState extends State<Math> {
                 children: [
                   Container(
                     child: SizedBox(
-                      width: 270,
-                      height: 50,
+                      width : MediaQuery.of(context).size.width,
+                        height: 50,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(containerColorD),
+                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(22.0),
+                 ),),
                         ),
                         onPressed: () {
                           setState(() {

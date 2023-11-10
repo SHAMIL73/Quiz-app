@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Category.dart';
 import 'package:flutter_application_1/MarkHistory.dart';
+import 'package:flutter_application_1/Profile.dart';
 import 'package:flutter_application_1/ProviderDemo.dart';
 import 'package:provider/provider.dart';
-
-void main() {
-  runApp(const Dashboard());
-}
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -21,13 +18,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   void initState() {
     super.initState();
-  }
- 
-  void navigateToCategory(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const Category()),
-    );
   }
 
   @override
@@ -59,14 +49,37 @@ class _DashboardState extends State<Dashboard> {
                   ),
                   onPressed: () {
                     Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MarkHistory()),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MarkHistory()),
+                    );
                   },
                 ),
               ),
               title: Provider.of<ProviderDemo>(context).text1(),
               centerTitle: true,
+              actions: [
+                Row(
+                  children: [
+                    InkWell(
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.face,
+                          size: 34,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Profile()),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
             const SizedBox(height: 50),
             Container(

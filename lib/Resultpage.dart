@@ -92,9 +92,9 @@ class _ResultpageState extends State<Resultpage> {
               ),
             ),
             mark > 5?
-             Text(
+             const Text(
               "You Have Scored 5/5",
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
                 color: Colors.white,
               ),
