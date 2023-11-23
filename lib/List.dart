@@ -27,7 +27,6 @@ List<QuizVariables> QuestionsM = [
       options: ["A : 2", "B : 5", "C : 10", "D : 0"],
       indexofAnswer: 1),
 ];
-
 List<QuizVariables> QuestionsS = [
   QuizVariables(
       number: "Q1: ",
@@ -55,7 +54,6 @@ List<QuizVariables> QuestionsS = [
       options: ["A: LeBron James", "B: Jithin", "C: Kobe Bryant", "D: Michael Jordan"],
       indexofAnswer: 0),
 ];
-
 List<QuizVariables> QuestionsF = [
   QuizVariables(
     number: "Q1: ",

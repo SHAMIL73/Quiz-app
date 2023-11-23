@@ -1,19 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Dashboard.dart';
-import 'package:flutter_application_1/Opt.dart';
 import 'package:flutter_application_1/Login.dart';
+import 'package:flutter_application_1/ProviderDemo.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class VerifyOtp extends StatefulWidget {
+  const VerifyOtp({super.key});
   @override
-  State<Signup> createState() => _SignupState();
+  State<VerifyOtp> createState() => _VerifyOtpState();
 }
 
-class _SignupState extends State<Signup> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class _VerifyOtpState extends State<VerifyOtp> {
+  TextEditingController VerifyOtpController = TextEditingController();
   final auth = FirebaseAuth.instance;
 
   Future<UserCredential?> signInWithGoogle() async {
@@ -27,11 +27,55 @@ class _SignupState extends State<Signup> {
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
+  var receivedID = '';
+  String enteredOTP = '';
+  bool otpFieldVisibility = false;
+
+   void verifyUserPhoneNumber() {
+    auth.verifyPhoneNumber(
+      phoneNumber: Provider.of<ProviderDemo>(context, listen: false).otpController.text,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await auth.signInWithCredential(credential).then(
+              (value) => print('Logged In Successfully'),
+            );
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        print(e.message);
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        receivedID = verificationId;
+        otpFieldVisibility = true;
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        print('TimeOut');
+        print('Verifying phone number: +${Provider.of<ProviderDemo>(context, listen: false).otpController.text}');
+      },
+    );
+  }
+
+  void verifyOTPCode(BuildContext context) async {
+    PhoneAuthCredential credential = PhoneAuthProvider.credential(
+        verificationId: receivedID, smsCode: enteredOTP);
+    await auth
+        .signInWithCredential(credential)
+        .then((value) => print('User Login In Successful'));
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Dashboard()),
+    );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Dashboard()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(0, 190, 169, 169),
+        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
         title: const Text('MR.QUIZ',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
       ),
@@ -44,70 +88,40 @@ class _SignupState extends State<Signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Sign up',
+                  'Verify Otp',
                   style: TextStyle(
-                    fontSize: 24.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 30.0),
                 TextField(
-                  controller: emailController,
+                  controller: VerifyOtpController,
                   style: const TextStyle(color: Colors.black),
                   decoration: const InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Enter your otp',
                   ),
                 ),
-                const SizedBox(height: 10.0),
-                TextField(
-                  controller: passwordController,
-                  style: const TextStyle(color: Colors.black),
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                  ),
-                ),
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 30.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 64),
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          try {
-                            final credential = await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                              email: emailController.text,
-                              password: passwordController.text,
-                            );
-                            if (credential == true) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Dashboard()),
-                              );
-                            }
-                          } on FirebaseAuthException catch (e) {
-                            if (e.code == 'weak-password') {
-                              print('The password provided is too weak.');
-                            } else if (e.code == 'email-already-in-use') {
-                              print(
-                                  'The account already exists for that email.');
-                            } else {
-                              print(e);
-                            }
-                          } catch (e) {
-                            print(e);
-                          }
-                        },
-                        style: ButtonStyle(
-                          fixedSize:
-                              MaterialStateProperty.all(const Size(170, 44)),
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
-                        ),
-                        child: const Text('SIGN UP',
+                    ElevatedButton(
+                      onPressed: () {
+                        if (otpFieldVisibility = true) {
+                          verifyOTPCode(context);
+                        }else{
+                          Provider.of<ProviderDemo>(context, listen: false).verifyUserPhoneNumber();
+                        }
+                      },
+                      style: ButtonStyle(
+                        fixedSize:
+                            MaterialStateProperty.all(const Size(170, 44)),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.black),
+                      ),
+                      child: const Center(
+                        child: Text('VERIFY OTP',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
@@ -115,21 +129,10 @@ class _SignupState extends State<Signup> {
                             )),
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Login(),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        "log in",
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
-                      ),
-                    ),
                   ],
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 20),
@@ -175,10 +178,10 @@ class _SignupState extends State<Signup> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Otp(),
+                            builder: (context) => const Login(),
                           ),
                         );
                       },
@@ -189,13 +192,11 @@ class _SignupState extends State<Signup> {
                           shape: BoxShape.circle,
                           color: Color.fromARGB(255, 223, 227, 216),
                         ),
-                        child: const Center(
-                          child: Text(
-                            "OTP",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18, // Adjust the size as needed
-                            ),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/gmail.png',
+                            height: 42,
+                            width: 42,
                           ),
                         ),
                       ),

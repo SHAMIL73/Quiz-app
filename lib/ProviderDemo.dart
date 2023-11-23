@@ -9,7 +9,8 @@ class ProviderDemo with ChangeNotifier {
   Color containerColorB = Colors.white;
   Color containerColorC = Colors.white;
   Color containerColorD = Colors.white;
-
+  
+  TextEditingController otpController = TextEditingController();
 
   Text text1() {
     return const Text(
@@ -136,4 +137,6 @@ void iN(BuildContext context) {
     
   }@override
   notifyListeners();
+
+  void verifyUserPhoneNumber() {} 
   }

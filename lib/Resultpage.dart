@@ -9,7 +9,6 @@ class Resultpage extends StatefulWidget {
   final int mark;
 
   const Resultpage({Key? key, required this.mark}) : super(key: key);
-
   @override
   _ResultpageState createState() => _ResultpageState(mark: mark);
 }

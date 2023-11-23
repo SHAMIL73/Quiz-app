@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Resultpage.dart';
 import 'package:flutter_application_1/List.dart';
 import 'package:provider/provider.dart';
-
 import 'ProviderDemo.dart';
 
 class Math extends StatefulWidget {
   const Math({Key? key}) : super(key: key);
-
   @override
   State<Math> createState() => _MathState();
 }

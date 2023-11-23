@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 class sports extends StatefulWidget {
   const sports({Key? key}) : super(key: key);
-
   @override
   State<sports> createState() => _sportsState();
 }

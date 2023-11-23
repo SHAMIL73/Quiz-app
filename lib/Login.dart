@@ -2,16 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Dashboard.dart';
 import 'package:flutter_application_1/Opt.dart';
-import 'package:flutter_application_1/Login.dart';
+import 'package:flutter_application_1/Signup.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
   @override
-  State<Signup> createState() => _SignupState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignupState extends State<Signup> {
+class _LoginState extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final auth = FirebaseAuth.instance;
@@ -30,8 +29,8 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(0, 190, 169, 169),
         title: const Text('MR.QUIZ',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
       ),
@@ -44,11 +43,11 @@ class _SignupState extends State<Signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Sign up',
+                  'Log in',
                   style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w500,
-                  ),
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blue),
                 ),
                 const SizedBox(height: 20.0),
                 TextField(
@@ -72,46 +71,38 @@ class _SignupState extends State<Signup> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(left: 64),
+                      margin: const EdgeInsets.only(left: 71),
                       child: ElevatedButton(
                         onPressed: () async {
-                          try {
-                            final credential = await FirebaseAuth.instance
-                                .createUserWithEmailAndPassword(
-                              email: emailController.text,
-                              password: passwordController.text,
+                          final userCredential =
+                              await auth.signInWithEmailAndPassword(
+                            email: emailController.text,
+                            password: passwordController.text,
+                          );
+                          // ignore: unnecessary_null_comparison
+                          if (userCredential != null) {
+                            // Successful sign-in
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Dashboard(),
+                              ),
                             );
-                            if (credential == true) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Dashboard()),
-                              );
-                            }
-                          } on FirebaseAuthException catch (e) {
-                            if (e.code == 'weak-password') {
-                              print('The password provided is too weak.');
-                            } else if (e.code == 'email-already-in-use') {
-                              print(
-                                  'The account already exists for that email.');
-                            } else {
-                              print(e);
-                            }
-                          } catch (e) {
-                            print(e);
+                          } else {
+                            // Error during sign-in
+                            // ...
                           }
                         },
                         style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                           fixedSize:
                               MaterialStateProperty.all(const Size(170, 44)),
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.black),
                         ),
-                        child: const Text('SIGN UP',
+                        child: const Text('LOG IN',
                             style: TextStyle(
+                              color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
-                              color: Colors.white,
                             )),
                       ),
                     ),
@@ -120,14 +111,12 @@ class _SignupState extends State<Signup> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Login(),
+                            builder: (context) => const Signup(),
                           ),
                         );
                       },
-                      child: const Text(
-                        "log in",
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
-                      ),
+                      child: const Text("sign up",
+                          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
                     ),
                   ],
                 ),
@@ -167,8 +156,8 @@ class _SignupState extends State<Signup> {
                         child: Center(
                           child: Image.asset(
                             'assets/images/google-removebg-preview.png',
-                            height: 35,
-                            width: 35,
+                            height: 35, // Set the desired height of the image
+                            width: 35, // Set the desired width of the image
                           ),
                         ),
                       ),
